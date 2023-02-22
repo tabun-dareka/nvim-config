@@ -28,18 +28,58 @@ end
 return packer.startup(function(use)
     use 'wbthomason/packer.nvim'
     use 'nvim-lua/plenary.nvim'
+    use 'nvim-tree/nvim-web-devicons'
     use 'ellisonleao/gruvbox.nvim'
     use {
         'iamcco/markdown-preview.nvim',
         run = 'cd app && yarn install',
         cmd = 'MarkdownPreview'
     }
-        -- cmp
+    use 'windwp/nvim-autopairs'
+    use 'RRethy/vim-illuminate'
+
+    -- line
+    use {
+        'nvim-lualine/lualine.nvim',
+        requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+    }
+
+    -- git
+    use {
+        'lewis6991/gitsigns.nvim',
+        -- tag = 'release' -- To use the latest release (do not use this if you run Neovim nightly or dev builds!)
+    }
+
+    -- trouble
+    use 'folke/trouble.nvim'
+
+    -- telescope
+    use {
+        'nvim-telescope/telescope.nvim', tag = '0.1.1',
+        -- or                            , branch = '0.1.x',
+        requires = { {'nvim-lua/plenary.nvim'} }
+    }
+
+    -- leap
+    use 'ggandor/leap.nvim'
+
+    -- cmp
     use 'hrsh7th/nvim-cmp'
     use 'hrsh7th/cmp-nvim-lsp'
     use 'hrsh7th/cmp-buffer'
     use 'hrsh7th/cmp-path'
     use 'saadparwaiz1/cmp_luasnip'
+
+    -- lsp
+    use 'neovim/nvim-lspconfig'
+    use 'ray-x/lsp_signature.nvim'
+
+    -- treesitter
+    use {
+        'nvim-treesitter/nvim-treesitter',
+        run = ':TSUpdate'
+    }
+
     -- snippets
     use({
         "L3MON4D3/LuaSnip",
@@ -49,6 +89,7 @@ return packer.startup(function(use)
         run = "make install_jsregexp"
     })
     use 'rafamadriz/friendly-snippets'
+
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
     if PACKER_BOOTSTRAP then
