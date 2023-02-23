@@ -37,6 +37,7 @@ return packer.startup(function(use)
     }
     use 'windwp/nvim-autopairs'
     use 'RRethy/vim-illuminate'
+    use 'lukas-reineke/indent-blankline.nvim'
 
     -- line
     use {
@@ -62,6 +63,15 @@ return packer.startup(function(use)
 
     -- leap
     use 'ggandor/leap.nvim'
+
+    -- tree
+    use {
+        'nvim-tree/nvim-tree.lua',
+        requires = {
+            'nvim-tree/nvim-web-devicons', -- optional, for file icons
+        },
+        tag = 'nightly' -- optional, updated every week. (see issue #1193)
+    }
 
     -- cmp
     use 'hrsh7th/nvim-cmp'

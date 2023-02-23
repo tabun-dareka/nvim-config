@@ -15,4 +15,4 @@ vim.keymap.set('n', '<C-w><', '8<C-w><', opts)
 -- pasting doesnt copy the selection
 vim.keymap.set('v', 'p', '"_dP', opts)
 -- select pasted text
-vim.keymap.set('v', 'gp', '`[v`]', opts)
+vim.keymap.set('n', 'gp', '`[v`]', opts)
